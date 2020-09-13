@@ -1,0 +1,64 @@
+#colorscheme{
+    color: #edc7b7;
+    color: #eee2dc;
+    color: #bab2b5;
+    color: #123c69;
+    color: #ac3b61;
+}
+
+td {
+    border: .5px #edc7b7 solid;
+    color: whitesmoke;
+    height: 50px;
+}
+
+
+
+#tableheadHead, #saveHead {
+    width: 50px;
+}
+
+#appointmentHead {
+    width: 500px;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: #edc7b7;
+}
+
+#today {
+    display: flex;
+    justify-content: center;
+    color: #edc7b7;
+    font-size: x-large;
+    margin-bottom: 0px;
+}
+
+#rightNow {
+    display: flex;
+    justify-content: center;
+    color: #edc7b7;
+    font-size: x-large;
+}
+
+body {
+    background-color: #b9a569;
+}
+
+/* header {
+    max-width: 1000px;
+    margin: 0 auto;
+    /* display: flex;
+    justify-content: center; */
+} */
+
+
+
+
