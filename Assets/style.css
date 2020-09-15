@@ -52,6 +52,13 @@ body {
     background-color: #b9a569;
 }
 
+#appointment {
+    background-color: #b9a569;
+    height: 50px;
+    width: 500px;
+    color: whitesmoke;
+}
+
 /* header {
     max-width: 1000px;
     margin: 0 auto;
@@ -59,6 +66,10 @@ body {
     justify-content: center; */
 } */
 
-
+#savebtn, #save {
+    border: 10px violet solid;
+    background-color: violet;
+    color: violet;
+}
 
 
