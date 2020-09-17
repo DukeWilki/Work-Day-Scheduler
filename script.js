@@ -31,7 +31,7 @@ const times = [
 // , '6 pm', '7 pm', '8 pm', '9 pm', '10 pm', '11 pm'
 ]
 
-const currentHour = moment().hours()
+const currentHour = moment().hours()-5
 console.log("Current hour: " + currentHour);
 
 for (let index = 0; index < times.length; index++) {
@@ -41,29 +41,35 @@ for (let index = 0; index < times.length; index++) {
 var hourIdentity = index + 9;
 console.log(hourIdentity)
 
+
+// highlight funtion - past is greyed out, present is highlighted, future stays as default
+var highlight = function() {
+    $(".block").each( function() {
+        var hourBlock = parseInt($(this).attr("id"));
+
+        if ( hourBlock < currentHour ) {
+            console.log('past')
+            $(this).addClass("past");
+        }
+        else if ( hourBlock === currentHour ) {
+            console.log('present')
+            $(this).addClass("present");
+        } else if ( hourBlock > currentHour ) {
+            console.log('future')
+            $(this).addClass("future");
+        }
+    })
+};
+
+
 document.createElement('tr')
-        const row = $('<tr>')
+        const row = $('<tr class="block" id=' + hourIdentity + '>')
+        highlight ();
         
         const td1 = $('<td>')
         td1.text(time)
 
         const td2 = $('<input type="text" value="" id="appointment'+ hourIdentity + '"><br>')
-        if (hourIdentity < currentHour) {
-            console.log("past")
-            // $("body").bind(["appointment"+ hourIdentity], function() {
-            // $(this).find("appointment"+ hourIdentity).addClass("past")});
-            // document.getElementById("appointment"+ hourIdentity).style="color:grey;"
-            // document.getElementById("appointment"+ hourIdentity).classList.add('past');
-        } else if (hourIdentity === currentHour) {
-            console.log("present")
-            // document.getElementById("appointment"+ hourIdentity).style="color:green;"
-            // document.getElementById("appointment"+ hourIdentity).classList.add('present');
-        } else {
-            console.log("future")
-            // document.getElementById("appointment9"+ hourIdentity).classList.add('future');
-        }
-          
-      
 
         const td3 = $('<td id="savebtn"><button id="save'+ hourIdentity + '" disabled>Save</button></td>')
 
@@ -125,55 +131,14 @@ appointment15.setAttribute("value", localStorage.appointment15);
 }
 
 if (localStorage.appointment16 !== undefined) {
-var appointment16 = document.getElementById("appointment16");
-appointment16.setAttribute("value", localStorage.appointment16);
-}
+    var appointment16 = document.getElementById("appointment16");
+    appointment16.setAttribute("value", localStorage.appointment16);
+    }
 
-if (currentHour === 9) {
-    document.getElementById("appointment9").classList.add('present');
-} else if (currentHour === 10) {
-    document.getElementById("appointment10").classList.add('present');
-    document.getElementById("appointment9").classList.add('past');
-} else if (currentHour === 11) {
-    document.getElementById("appointment9").classList.add('past');
-    document.getElementById("appointment10").classList.add('past');
-    document.getElementById("appointment11").classList.add('present');
-} else if (currentHour === 12) {
-    document.getElementById("appointment9").classList.add('past');
-    document.getElementById("appointment10").classList.add('past');
-    document.getElementById("appointment11").classList.add('past');
-    document.getElementById("appointment12").classList.add('present');
-} else if (currentHour === 13) {
-    document.getElementById("appointment9").classList.add('past');
-    document.getElementById("appointment10").classList.add('past');
-    document.getElementById("appointment11").classList.add('past');
-    document.getElementById("appointment12").classList.add('past');
-    document.getElementById("appointment13").classList.add('present');
-} else if (currentHour === 14) {
-    document.getElementById("appointment9").classList.add('past');
-    document.getElementById("appointment10").classList.add('past');
-    document.getElementById("appointment11").classList.add('past');
-    document.getElementById("appointment12").classList.add('past');
-    document.getElementById("appointment13").classList.add('past');
-    document.getElementById("appointment14").classList.add('present');
-} else if (currentHour === 15) {
-    document.getElementById("appointment9").classList.add('past');
-    document.getElementById("appointment10").classList.add('past');
-    document.getElementById("appointment11").classList.add('past');
-    document.getElementById("appointment12").classList.add('past');
-    document.getElementById("appointment13").classList.add('past');
-    document.getElementById("appointment14").classList.add('past');
-    document.getElementById("appointment15").classList.add('present');
-} else if (currentHour === 16) {
-    document.getElementById("appointment9").classList.add('past');
-    document.getElementById("appointment10").classList.add('past');
-    document.getElementById("appointment11").classList.add('past');
-    document.getElementById("appointment12").classList.add('past');
-    document.getElementById("appointment13").classList.add('past');
-    document.getElementById("appointment14").classList.add('past');
-    document.getElementById("appointment15").classList.add('past');
-    document.getElementById("appointment16").classList.add('present');
-} 
+    if (localStorage.appointment17 !== undefined) {
+        var appointment17 = document.getElementById("appointment17");
+        appointment17.setAttribute("value", localStorage.appointment17);
+        }
 
 
 // each schedule item can contain notes (from local storage)
