@@ -8,6 +8,7 @@
 
 body {
     background-color: #b9a569;
+    font-family: 'Architects Daughter', cursive;
 }
 
 /* TOP SECTION */
@@ -15,13 +16,14 @@ body {
 h1 {
     display: flex;
     justify-content: center;
-    color: #edc7b7;
+    color: #eee2dc;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 #today {
     display: flex;
     justify-content: center;
-    color: #edc7b7;
+    color: #eee2dc;
     font-size: x-large;
     margin-bottom: 0px;
 }
@@ -29,7 +31,7 @@ h1 {
 #rightNow {
     display: flex;
     justify-content: center;
-    color: #edc7b7;
+    color: #eee2dc;
     font-size: x-large;
 }
 
@@ -39,12 +41,16 @@ table {
     justify-content: center;
 }
 
-#tableheadHead, #saveHead {
+#timeHead, #saveHead {
     width: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #eee2dc;
 }
 
 #appointmentHead {
     width: 500px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #eee2dc;
 }
 
 tr {
@@ -77,10 +83,10 @@ input {
 
 .present {
     background-color: rgb(4, 238, 4);
-    color: teal;
+    color: #123c69;
 }
 
 .present input {
     background-color: rgb(4, 238, 4);
-    color: teal;
+    color: #123c69;
 }

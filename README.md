@@ -1,9 +1,9 @@
 # Work Day Scheduler
-This assignment was to create a random password adhering to user defined conditions. 
+This assignment was to create a daily planner with one our blocks for the standard workday
 
 ## Contents
 <p>
-The app is composed of ...
+The app is composed of three files:
 index.html script.js style.css
 </p>
 
@@ -41,7 +41,7 @@ index.html script.js style.css
 
 </p>
 
-## Screenshot
+## Screenshots
 
 
 
