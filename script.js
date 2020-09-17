@@ -62,6 +62,28 @@ var highlight = function() {
 };
 
 
+var highlight = function() {
+    $(".block").each( function() {
+        var hourBlock = parseInt($(this).attr("id"));
+
+        if ( hourBlock < currentHour ) {
+            console.log('past')
+            $(this).addClass("past");
+        }
+        else if ( hourBlock === currentHour ) {
+            console.log('present')
+            $(this).addClass("present");
+        } else if ( hourBlock > currentHour ) {
+            console.log('future')
+            $(this).addClass("future");
+        }
+    })
+};
+
+
+
+
+
 document.createElement('tr')
         const row = $('<tr class="block" id=' + hourIdentity + '>')
         highlight ();
@@ -69,14 +91,14 @@ document.createElement('tr')
         const td1 = $('<td>')
         td1.text(time)
 
-        const td2 = $('<input type="text" value="" id="appointment'+ hourIdentity + '"><br>')
+        const appointmentText = localStorage ["appointment" + hourIdentity];
+        const td2 = $('<input type="text" value="' + appointmentText + '" id="appointment'+ hourIdentity + '"><br>')
+        // appointment.setAttribute("value", localStorage.appointment9);
 
         const td3 = $('<td id="savebtn"><button id="save'+ hourIdentity + '" disabled>Save</button></td>')
 
         row.append(td1, td2, td3)
         $("#table").append(row)
-
-
 
         // Enable editing of appointments and saving of data - keep past events un-savable 
         const appointment = document.getElementById("appointment" + hourIdentity)
@@ -95,50 +117,6 @@ document.createElement('tr')
         };
 }
 
-if (localStorage.appointment9 !== undefined) {
-var appointment9 = document.getElementById("appointment9");
-appointment9.setAttribute("value", localStorage.appointment9);
-}
-
-if (localStorage.appointment10 !== undefined) {
-var appointment10 = document.getElementById("appointment10");
-appointment10.setAttribute("value", localStorage.appointment10);
-}
-
-if (localStorage.appointment11 !== undefined) {
-var appointment11 = document.getElementById("appointment11");
-appointment11.setAttribute("value", localStorage.appointment11);
-}
-
-if (localStorage.appointment12 !== undefined) {
-var appointment12 = document.getElementById("appointment12");
-appointment12.setAttribute("value", localStorage.appointment12);
-}
-
-if (localStorage.appointment13 !== undefined) {
-var appointment13 = document.getElementById("appointment13");
-appointment13.setAttribute("value", localStorage.appointment13);
-}
-
-if (localStorage.appointment14 !== undefined) {
-var appointment14 = document.getElementById("appointment14");
-appointment14.setAttribute("value", localStorage.appointment14);
-}
-
-if (localStorage.appointment15 !== undefined) {
-var appointment15 = document.getElementById("appointment15");
-appointment15.setAttribute("value", localStorage.appointment15);
-}
-
-if (localStorage.appointment16 !== undefined) {
-    var appointment16 = document.getElementById("appointment16");
-    appointment16.setAttribute("value", localStorage.appointment16);
-    }
-
-    if (localStorage.appointment17 !== undefined) {
-        var appointment17 = document.getElementById("appointment17");
-        appointment17.setAttribute("value", localStorage.appointment17);
-        }
 
 
 // each schedule item can contain notes (from local storage)
