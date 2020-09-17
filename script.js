@@ -31,7 +31,7 @@ const times = [
 // , '6 pm', '7 pm', '8 pm', '9 pm', '10 pm', '11 pm'
 ]
 
-const currentHour = moment().hours()-5
+const currentHour = moment().hours()-7
 console.log("Current hour: " + currentHour);
 
 for (let index = 0; index < times.length; index++) {
@@ -58,28 +58,12 @@ var highlight = function() {
             console.log('future')
             $(this).addClass("future");
         }
-    })
-};
-
-
-var highlight = function() {
-    $(".block").each( function() {
-        var hourBlock = parseInt($(this).attr("id"));
-
-        if ( hourBlock < currentHour ) {
-            console.log('past')
-            $(this).addClass("past");
-        }
-        else if ( hourBlock === currentHour ) {
-            console.log('present')
-            $(this).addClass("present");
-        } else if ( hourBlock > currentHour ) {
-            console.log('future')
-            $(this).addClass("future");
+        else {
+            console.log('nil')
+            $(this).addClass("hidden");
         }
     })
 };
-
 
 
 
@@ -93,7 +77,6 @@ document.createElement('tr')
 
         const appointmentText = localStorage ["appointment" + hourIdentity];
         const td2 = $('<input type="text" value="' + appointmentText + '" id="appointment'+ hourIdentity + '"><br>')
-        // appointment.setAttribute("value", localStorage.appointment9);
 
         const td3 = $('<td id="savebtn"><button id="save'+ hourIdentity + '" disabled>Save</button></td>')
 

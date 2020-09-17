@@ -47,17 +47,21 @@ table {
     width: 500px;
 }
 
+tr {
+    color: #eee2dc;
+}
+
 td {
     border: .5px #edc7b7 solid;
-    color: whitesmoke;
     height: 50px;
 }
 
 input {
     width: 500px;
     height: 50px;
-    background-color: #b9a569
+    background-color: #b9a569;
     border: .5px #edc7b7 solid;
+    color: #eee2dc;
 }
 
 /* TABLE ELEMENTS BASED ON TIME */
@@ -68,21 +72,15 @@ input {
 
 .past input {
     background-color: rgb(189, 185, 185);
-    color: whitesmoke;
+    color: #eee2dc;
 }
 
 .present {
     background-color: rgb(4, 238, 4);
-    /* color: teal; */
+    color: teal;
 }
 
 .present input {
     background-color: rgb(4, 238, 4);
     color: teal;
 }
-
-.future input{
-    background-color: #b9a569;
-    color: whitesmoke;
-}
-
