@@ -7,6 +7,11 @@ The app is composed of three files:
 index.html script.js style.css
 </p>
 
+## Design
+<p>
+Soft colours were used as many office workers spend a lot of time on computer screens. The only bright colour used is the light green to indicate the present. This was chosen to draw the users attention and the colours accociation of "go".
+</p>
+
 ## User Story
 <p>
     
@@ -42,11 +47,12 @@ index.html script.js style.css
 </p>
 
 ## Screenshots
-
-
+NB an adjustmet on part of the code was used to show the colour coding, this is why the time at the top of the page does not reflect the time on the table in the first image. This adjustment has been removed from the code so the time will now match the table.
+![Screenshot 1](https://github.com/DukeWilki/Work-Day-Scheduler/blob/master/Assets/application.JPG)
+![Screenshot 2](https://github.com/DukeWilki/Work-Day-Scheduler/blob/master/Assets/localstorage.JPG)
 
 ### Link to the App
-
+https://dukewilki.github.io/Work-Day-Scheduler/
 
 ### Licence
 Not applicable
