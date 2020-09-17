@@ -27,7 +27,7 @@ const times = [
   "5 pm"
 ];
 
-const currentHour = moment().hours() - 7;
+const currentHour = moment().hours();
 
 for (let index = 0; index < times.length; index++) {
   const time = times[index];
