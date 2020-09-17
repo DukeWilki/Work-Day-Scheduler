@@ -12,7 +12,14 @@ td {
     height: 50px;
 }
 
-
+input {
+    width: 500px;
+    height: 50px;
+    background-color: #b9a569;
+    color: whitesmoke;
+    border: .5px #edc7b7 solid;
+    /* border-bottom: .5px #edc7b7 solid; */
+}
 
 #tableheadHead, #saveHead {
     width: 50px;
@@ -25,6 +32,7 @@ td {
 table {
     display: flex;
     justify-content: center;
+    
 }
 
 h1 {
@@ -51,12 +59,12 @@ h1 {
 body {
     background-color: #b9a569;
 }
-
+/* 
 #appointment {
     background-color: #b9a569;
     height: 50px;
     width: 500px;
-    color: whitesmoke;
+    color: whitesmoke; */
 }
 
 /* header {
@@ -72,4 +80,17 @@ body {
     color: violet;
 }
 
+.past {
+    background-color: rgb(189, 185, 185);
+    /* color: tomato; */
+}
+
+.present {
+    background-color: rgb(4, 238, 4);
+    color: teal;
+}
+
+.future {
+    background-color: blue;
+}
 

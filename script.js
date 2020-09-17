@@ -1,52 +1,45 @@
-
-const today = $("#today");
-console.log(today)
-const rightNow = $("#rightNow");
-const now = moment();
-const date = now.format("dddd, Do MMMM YYYY"); 
-// const date = moment().format("dddd, Do MMMM YYYY"); 
-const time = now.format("h:mm a"); 
-today.html(date);
-rightNow.html(time);
-let lastLogIn = localStorage.getItem("lastLogIn")
-
-
 // GOAL
 // to have a day planner from 9 - 5, user can record data on every timeblock
 // The item should persist, when i come back, the data should still still be there
-// 
 
 // when the user load the page, 
 // we see todays date
+// we see only todays appointments
+// we see a schedule of the standard workday in hour blocks
+// hour blocks in the past are greyed out
+// current hour block is highlighted
 
-const times = [
-    '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm'
-, '6 pm', '7 pm', '8 pm', '9 pm', '10 pm', '11 pm'
-]
-console.log(times[0])
-const currentHour = moment().hours()
-console.log(currentHour);
-
-for (let index = 0; index < times.length; index++) {
-    const time = times[index];
-
-// // we check if all items in local storage belong to today, if not we delete all of the items that are not from today
+// Display date and time
+const today = $("#today");
+const rightNow = $("#rightNow");
+const now = moment();
+const date = now.format("dddd, Do MMMM YYYY"); 
+const time = now.format("h:mm a"); 
+today.html(date);
+rightNow.html(time);
 
 // If today's date is not reflected in local storage, then planner is out of date. It will delete all appointments and record todays date.
+let lastLogIn = localStorage.getItem("lastLogIn")
 if (date !== lastLogIn) {
     localStorage.clear();
     localStorage.setItem("lastLogIn", date)
 } 
 
-// // we see the schedule from 9 - 5
-// // (only for today)
-// // option1: prepopulate the table in html
-// // cons: hard to maintain
-// // option2: dynamically generate the table rows
-// // create row//
+// Set up data feilds
+const times = [
+    '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm'
+// , '6 pm', '7 pm', '8 pm', '9 pm', '10 pm', '11 pm'
+]
 
+const currentHour = moment().hours()
+console.log("Current hour: " + currentHour);
+
+for (let index = 0; index < times.length; index++) {
+    const time = times[index];
+
+// find number suffix for element ID
 var hourIdentity = index + 9;
-var appointmentArray = []
+console.log(hourIdentity)
 
 document.createElement('tr')
         const row = $('<tr>')
@@ -54,24 +47,42 @@ document.createElement('tr')
         const td1 = $('<td>')
         td1.text(time)
 
-        const td2 = $('<input type="text" class="timebox" value="" id="appointment'+ hourIdentity + '"><br>')
+        const td2 = $('<input type="text" value="" id="appointment'+ hourIdentity + '"><br>')
+        if (hourIdentity < currentHour) {
+            console.log("past")
+            // $("body").bind(["appointment"+ hourIdentity], function() {
+            // $(this).find("appointment"+ hourIdentity).addClass("past")});
+            // document.getElementById("appointment"+ hourIdentity).style="color:grey;"
+            // document.getElementById("appointment"+ hourIdentity).classList.add('past');
+        } else if (hourIdentity === currentHour) {
+            console.log("present")
+            // document.getElementById("appointment"+ hourIdentity).style="color:green;"
+            // document.getElementById("appointment"+ hourIdentity).classList.add('present');
+        } else {
+            console.log("future")
+            // document.getElementById("appointment9"+ hourIdentity).classList.add('future');
+        }
+          
+      
 
         const td3 = $('<td id="savebtn"><button id="save'+ hourIdentity + '" disabled>Save</button></td>')
 
         row.append(td1, td2, td3)
         $("#table").append(row)
 
-
         const appointment = document.getElementById("appointment" + hourIdentity)
         const save = document.getElementById("save" + hourIdentity)
         console.log(appointment.value)
-       
+ 
+            
+
         appointment.addEventListener("keyup", () => {
         save.disabled = !appointment.value;
         // console.log(appointment)
 
         save.addEventListener ("click", (e) => {
             localStorage.setItem(appointment.id, appointment.value) 
+            save.disabled = appointment.value;
           });
 }); 
 }
@@ -115,6 +126,52 @@ if (localStorage.appointment16 !== undefined) {
 var appointment16 = document.getElementById("appointment16");
 appointment16.setAttribute("value", localStorage.appointment16);
 }
+
+if (currentHour === 9) {
+    document.getElementById("appointment9").classList.add('present');
+} else if (currentHour === 10) {
+    document.getElementById("appointment10").classList.add('present');
+    document.getElementById("appointment9").classList.add('past');
+} else if (currentHour === 11) {
+    document.getElementById("appointment9").classList.add('past');
+    document.getElementById("appointment10").classList.add('past');
+    document.getElementById("appointment11").classList.add('present');
+} else if (currentHour === 12) {
+    document.getElementById("appointment9").classList.add('past');
+    document.getElementById("appointment10").classList.add('past');
+    document.getElementById("appointment11").classList.add('past');
+    document.getElementById("appointment12").classList.add('present');
+} else if (currentHour === 13) {
+    document.getElementById("appointment9").classList.add('past');
+    document.getElementById("appointment10").classList.add('past');
+    document.getElementById("appointment11").classList.add('past');
+    document.getElementById("appointment12").classList.add('past');
+    document.getElementById("appointment13").classList.add('present');
+} else if (currentHour === 14) {
+    document.getElementById("appointment9").classList.add('past');
+    document.getElementById("appointment10").classList.add('past');
+    document.getElementById("appointment11").classList.add('past');
+    document.getElementById("appointment12").classList.add('past');
+    document.getElementById("appointment13").classList.add('past');
+    document.getElementById("appointment14").classList.add('present');
+} else if (currentHour === 15) {
+    document.getElementById("appointment9").classList.add('past');
+    document.getElementById("appointment10").classList.add('past');
+    document.getElementById("appointment11").classList.add('past');
+    document.getElementById("appointment12").classList.add('past');
+    document.getElementById("appointment13").classList.add('past');
+    document.getElementById("appointment14").classList.add('past');
+    document.getElementById("appointment15").classList.add('present');
+} else if (currentHour === 16) {
+    document.getElementById("appointment9").classList.add('past');
+    document.getElementById("appointment10").classList.add('past');
+    document.getElementById("appointment11").classList.add('past');
+    document.getElementById("appointment12").classList.add('past');
+    document.getElementById("appointment13").classList.add('past');
+    document.getElementById("appointment14").classList.add('past');
+    document.getElementById("appointment15").classList.add('past');
+    document.getElementById("appointment16").classList.add('present');
+} 
 
 
 // each schedule item can contain notes (from local storage)
