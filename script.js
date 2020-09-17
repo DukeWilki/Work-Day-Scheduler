@@ -70,21 +70,23 @@ document.createElement('tr')
         row.append(td1, td2, td3)
         $("#table").append(row)
 
+
+
+        // Enable editing of appointments and saving of data - keep past events un-savable 
         const appointment = document.getElementById("appointment" + hourIdentity)
         const save = document.getElementById("save" + hourIdentity)
         console.log(appointment.value)
- 
-            
-
+             
+        if (currentHour <= hourIdentity){
         appointment.addEventListener("keyup", () => {
         save.disabled = !appointment.value;
-        // console.log(appointment)
 
         save.addEventListener ("click", (e) => {
             localStorage.setItem(appointment.id, appointment.value) 
             save.disabled = appointment.value;
           });
 }); 
+        };
 }
 
 if (localStorage.appointment9 !== undefined) {
